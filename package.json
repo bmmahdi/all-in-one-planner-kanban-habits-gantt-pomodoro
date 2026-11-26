@@ -1,0 +1,53 @@
+{
+  "name": "planner-app",
+  "productName": "Planner",
+  "version": "1.1.0",
+  "description": "Desktop planner: tasks, Eisenhower matrix, 21-day habits, Gantt projects and Pomodoro",
+  "main": "main.js",
+  "author": "bmmahdi",
+  "license": "MIT",
+  "homepage": "https://github.com/bmmahdi/all-in-one-planner-kanban-habits-gantt-pomodoro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmmahdi/all-in-one-planner-kanban-habits-gantt-pomodoro.git"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.local.planner",
+    "productName": "Planner",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "sync.js",
+      "src/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Planner"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}
